@@ -51,4 +51,15 @@ class ProductCertificate(models.Model):
         return f"Certificate for {self.product.name}"
 
 
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200, blank=True)
+    message = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"Feedback from {self.name} ({self.email})"
+
+
 

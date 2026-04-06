@@ -1,8 +1,67 @@
 {% extends 'website/layout.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home - ShopEase{% endblock %}
 
 {% block content %}
-    <h1>Welcome to Django Website</h1>
-    <p>This is a simple Django website.</p>
+
+<!-- Hero Section -->
+<div class="hero-section text-white py-5">
+    <div class="container text-center py-4">
+        <h1 class="display-3 fw-bold mb-3">Welcome to ShopEase</h1>
+        <p class="lead mb-4 opacity-75">Discover amazing products at unbeatable prices. Quality guaranteed, every time.</p>
+        <a href="{% url 'newApp:home' %}" class="btn btn-light btn-lg me-3 px-4">
+            <i class="fas fa-shopping-bag me-2"></i>Shop Now
+        </a>
+        <a href="{% url 'newApp:about' %}" class="btn btn-outline-light btn-lg px-4">
+            <i class="fas fa-info-circle me-2"></i>Learn More
+        </a>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-5">
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+                <div class="card-body">
+                    <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Free Shipping</h5>
+                    <p class="text-muted mb-0">Free delivery on all orders above Rs. 1000. Fast and reliable.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+                <div class="card-body">
+                    <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
+                    <h5 class="fw-bold">Secure Payment</h5>
+                    <p class="text-muted mb-0">100% secure and encrypted payment processing for your safety.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm text-center p-4 h-100">
+                <div class="card-body">
+                    <i class="fas fa-undo-alt fa-3x text-warning mb-3"></i>
+                    <h5 class="fw-bold">Easy Returns</h5>
+                    <p class="text-muted mb-0">Hassle-free 7-day return policy on all purchased items.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 bg-primary text-white text-center p-5 shadow">
+                <h2 class="fw-bold mb-3">Ready to Start Shopping?</h2>
+                <p class="mb-4 opacity-75">Browse our wide collection of quality products and find exactly what you need.</p>
+                <a href="{% url 'newApp:home' %}" class="btn btn-light btn-lg px-5">
+                    <i class="fas fa-store me-2"></i>View All Products
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

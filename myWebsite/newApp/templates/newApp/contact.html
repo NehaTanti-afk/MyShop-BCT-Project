@@ -1,10 +1,128 @@
 {% extends 'website/layout.html' %}
 
-{% block title %}
-Contact
-{% endblock %}
+{% block title %}Contact Us - ShopEase{% endblock %}
 
 {% block content %}
-<h1>Contact Page</h1>
-<p>This is the contact page.</p>
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-7 text-center">
+            <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+            <p class="lead text-muted">We'd love to hear from you! Send us your message or feedback below.</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Contact Info -->
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4">Get In Touch</h4>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-primary bg-opacity-10 rounded-3 p-2 me-3">
+                            <i class="fas fa-map-marker-alt text-primary fa-lg"></i>
+                        </div>
+                        <div>
+                            <strong>Address</strong>
+                            <p class="text-muted mb-0">Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-success bg-opacity-10 rounded-3 p-2 me-3">
+                            <i class="fas fa-phone text-success fa-lg"></i>
+                        </div>
+                        <div>
+                            <strong>Phone</strong>
+                            <p class="text-muted mb-0">+977-9800000000</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-warning bg-opacity-10 rounded-3 p-2 me-3">
+                            <i class="fas fa-envelope text-warning fa-lg"></i>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <p class="text-muted mb-0">info@shopease.com</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start">
+                        <div class="bg-danger bg-opacity-10 rounded-3 p-2 me-3">
+                            <i class="fas fa-clock text-danger fa-lg"></i>
+                        </div>
+                        <div>
+                            <strong>Business Hours</strong>
+                            <p class="text-muted mb-0">Sun – Fri: 9AM – 6PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5">
+                    <h4 class="fw-bold mb-4">
+                        <i class="fas fa-paper-plane text-primary me-2"></i>Send Us a Message
+                    </h4>
+
+                    {% if success %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <strong>Thank you!</strong> Your message has been submitted successfully. We'll get back to you soon.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endif %}
+
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-user me-1 text-muted"></i>Your Name <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="name" class="form-control form-control-lg"
+                                    placeholder="Enter your full name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-envelope me-1 text-muted"></i>Email Address <span class="text-danger">*</span>
+                                </label>
+                                <input type="email" name="email" class="form-control form-control-lg"
+                                    placeholder="Enter your email" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-tag me-1 text-muted"></i>Subject
+                                </label>
+                                <input type="text" name="subject" class="form-control form-control-lg"
+                                    placeholder="What is this regarding?">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-comment me-1 text-muted"></i>Message <span class="text-danger">*</span>
+                                </label>
+                                <textarea name="message" class="form-control" rows="5"
+                                    placeholder="Write your message here..." required></textarea>
+                            </div>
+                            <div class="col-12 pt-2">
+                                <button type="submit" class="btn btn-primary btn-lg px-5">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endblock %}
